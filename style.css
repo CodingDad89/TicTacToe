@@ -1,0 +1,73 @@
+body {
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 200px;
+    height: 200px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 66px;
+    height: 66px;
+}
+
+.border-top {
+    border-top: 2px solid white;
+}
+
+.border-bottom {
+    border-bottom: 2px solid white;
+}
+
+.border-left {
+    border-left: 2px solid white;
+}
+
+.border-right {
+    border-right: 2px solid white;
+}
+
+.cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 66px;
+    height: 66px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.cell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.cell:hover::after {
+    opacity: 1;
+}
+
+.winning-line {
+    position: absolute;
+    height: 5px;
+    background-color: white; /* Setze die Farbe der Linie auf Weiß */
+    z-index: 10;
+}
